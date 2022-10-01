@@ -54,8 +54,6 @@ const restaurant = {
   },
 };
 
-// *Logical Assignment Operators
-
 /*
 const rest1 = {
   name: 'Capri',
@@ -67,7 +65,11 @@ const rest2 = {
   name: 'La piazza',
   owner: 'Giovanni Rossi',
 };
+*/
 
+// *Logical Assignment Operators
+
+/*
 // OR assigmnment operator
 
 // It assigns a value to a variable if that variable is currently falsy
@@ -215,7 +217,7 @@ restaurant.orderPizza('mushrooms');
 // the spread and rest pars look exactly the same but they work in opposite ways depending on where they are used. the spread is used where we otherwise write values separated by a comma, on the other hands the rest used when we otherwise write variable names separated by commas
 // *The Spread Operator (...)
 // It needs to build new arrays or to pass multiple values into a function
-// we expand an array in to induvidual elements
+// we expand an array into induvidual elements
 // it unpacks an array
 /*
 // adding values from other arr
