@@ -38,7 +38,7 @@ const game = {
     team2: 6.5,
   },
 };
-
+/*
 // 1
 
 // Create one player array for each team (variables 'players1' and 'players2')
@@ -118,3 +118,4 @@ printGoals(...game.scored);
 // Команда с меньшим нечетным числом имеет больше шансов на победу. Выведите в консоль, какая команда с большей вероятностью выиграет, БЕЗ использования оператора if/else или тернарного оператора.
 
 team1 < team2 && console.log('Team 1 is more likely to win');
+*/

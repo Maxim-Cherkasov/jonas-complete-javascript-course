@@ -54,6 +54,41 @@ const restaurant = {
   },
 };
 
+// *For of loop
+
+/*
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+//as in if else statement we don't need to create a code block when we only have one statement here
+
+//all elements are individually logged to the console
+
+//(item) is always the current element af each iteration here
+
+//we can continue or break in for of loop
+
+for (const item of menu) console.log(item);
+
+// each item of the array is a new array with index here because of (menu.entries)
+for (const item of menu.entries()) {
+  console.log(item);
+}
+
+// displaying index and item
+for (const item of menu.entries()) {
+  console.log(`${item[0] + 1}: ${item[1]}`);
+}
+
+// since each item is now an array, we can destructure it implementing destructuring assignment [i, el]
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log([...menu.entries()]);
+*/
+
+// *Logical Assignment Operators
+
 /*
 const rest1 = {
   name: 'Capri',
@@ -66,8 +101,6 @@ const rest2 = {
   owner: 'Giovanni Rossi',
 };
 */
-
-// *Logical Assignment Operators
 
 /*
 // OR assigmnment operator
