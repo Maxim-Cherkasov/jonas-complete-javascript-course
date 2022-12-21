@@ -4,6 +4,24 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+// ES6 computing values
+const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekDays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekDays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekDays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -12,36 +30,22 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  // ES6 Enhanced object literal
+  // we add the outside obj openingHours in this obj
+  openingHours,
 
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced method
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delievered to ${address} at ${time}`
     );
   },
 
+  // old method syntax orderPasta: function ()
   orderPasta: function (ing1, ing2, ing3) {
     console.log(
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
@@ -53,6 +57,85 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+//* Looping Objects_ Object Keys, Values, and Entries
+
+// Property NAMES
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+console.log(`we are open on ${properties.length} days`);
+
+let openStr = `we are open on ${properties.length} days:`;
+for (const day of Object.keys(openingHours)) {
+  openStr += `${day},`;
+}
+console.log(openStr);
+
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
+}
+
+// Property VALUES
+
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+// entries returns both keys and values
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const x of entries) {
+  console.log(x);
+}
+
+// the value itself is also an object
+// and we should name values as they are in the object here
+
+for (const [key, { open, close }] of entries) {
+  console.log(`on ${key} we open at ${open} and close at ${close}`);
+}
+
+//* Optional chaining
+
+/*
+// in opt chaining if a property does not exist then undefined returned immediately
+
+// an old version
+// here if both are exists then console.log
+if (restaurant.openingHours && restaurant.openingHours.thu)
+  console.log(restaurant.openingHours.thu.open);
+
+// the new one
+// it shows ..mon.open only if ..mon exists
+// the property exists if it's not null or undefined
+console.log(restaurant.openingHours?.mon?.open);
+
+// optional chaining and nullish coalescing
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// if we want to use the variable as the property name, we need to use the [] notation restaurant.openingHours[day]
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed'; // if .open does'nt exist in the days arr then the day default value is 'closed'. And if .open is 0 it's ok bcz of ?? operator
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods
+
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+// Arrays
+// the ? operator checks if the users[0] exist
+const users = [{ name: 'jonas', email: 'hello@jonas.io' }];
+console.log(users[0]?.name ?? 'user array empty');
+
+// or
+
+if (users.length > 0) console.log(users[0]?.name);
+else console.log('users array is empty');
+*/
 
 // *For of loop
 
@@ -76,7 +159,7 @@ for (const item of menu.entries()) {
 
 // displaying index and item
 for (const item of menu.entries()) {
-  console.log(`${item[0] + 1}: ${item[1]}`);
+  console.log(`${item[0] + 1}: ${item[1]}`); // 1st item is index, 2nd is item
 }
 
 // since each item is now an array, we can destructure it implementing destructuring assignment [i, el]
@@ -248,7 +331,9 @@ restaurant.orderPizza('mushrooms');
 */
 
 // the spread and rest pars look exactly the same but they work in opposite ways depending on where they are used. the spread is used where we otherwise write values separated by a comma, on the other hands the rest used when we otherwise write variable names separated by commas
+
 // *The Spread Operator (...)
+
 // It needs to build new arrays or to pass multiple values into a function
 // we expand an array into induvidual elements
 // it unpacks an array

@@ -1,7 +1,6 @@
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict';
 
-/*
 ///////////////////////////////////////
 // Using Google, StackOverflow and MDN
 
@@ -12,6 +11,7 @@ const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 // 1) Understanding the problem
 // - What is temp amplitude? Answer: difference between highest and lowest temp
+// - Размах колебания, наибольшее отклонение колеблющегося тела от положения равновесия
 // - How to compute max and min temperatures?
 // - What's a sensor error? And what do do?
 
@@ -67,7 +67,6 @@ const calcTempAmplitudeNew = function (t1, t2) {
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
 
-
 ///////////////////////////////////////
 // Debugging with the Console and Breakpoints
 const measureKelvin = function () {
@@ -114,7 +113,6 @@ const calcTempAmplitudeBug = function (t1, t2) {
 const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
 // A) IDENTIFY
 console.log(amplitudeBug);
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -158,4 +156,3 @@ const printForecast = function (arr) {
 };
 printForecast(data1);
 */
-
